@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <!-- Container -->
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-xs-6 d-flex justify-content-center vh-100 align-items-center indexCol">
+                <!-- Card -->
+                <div class="card text-center indexCard">
+                    <div class="card-body">
+                        <a href="./index.html"><img src="https://www.guvi.in/build/images/foot-guvi-logo.7516cb093c7727e01f9332234baea44a.webp"
+                            class="card-img-top logo" alt="Logo"></a>
+                        <h2 class="card-text welcomeMsg">Welcome to GUVI</h2>
+                        <img src="https://www.guvi.in/images/webps/art-signin.webp" class="card-img-top img" alt="Img">
+                        <!-- Form -->
+                        <form>
+                            <!-- Form Group (email)-->
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com" required>
+                                <label for="email">Email address</label>
+                                <div class="invalid-feedback">
+                                    Please enter a valid email address
+                                </div>
+                            </div>
+
+                            <!-- Form Group (password)-->
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="passwrd" placeholder="Password" required>
+                                <label for="passwrd">Password</label>
+                                <div class="invalid-feedback">
+                                    Password must contain at least one uppercase letter,number and must be 8 characters long.
+                                </div>
+                            </div>
+                            <!-- Login Button -->
+                            <button class="btn btn-success loginBtn" id="loginbutn">Login</button>
+                            <!-- Forgot Password  -->
+                            <div class="forgot_pass">
+                            <a href="./forgotPassword.html">Forgot Password</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+        <script src="./js/login.js"></script>
+</body>
+
+</html>
