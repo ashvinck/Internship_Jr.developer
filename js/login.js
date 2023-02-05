@@ -79,7 +79,7 @@ $(document).ready(function () {
                 console.log("Respone was: ", response);
                 if (response.includes("User Found")) {
                     localStorage.setItem("userdata", response)
-                    console.log(res)
+                    console.log(response);
                 }
             },
 

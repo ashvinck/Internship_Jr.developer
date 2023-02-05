@@ -61,5 +61,3 @@ $sttmnt->execute();
 // $sttmnt->close();
 // $conn->close();
 //echo $conn->error;
-
-?>
