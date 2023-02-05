@@ -1,45 +1,46 @@
 <?php
 
+require '../vendor/autoload.php'; // include Composer's autoloader
+
+
 // Defining variables
-  $db_host = "localhost";
-  $db_pass = "";
-  $db_user = "root";
+$db_host = "localhost";
+$db_pass = "";
+$db_user = "root";
 
 // Create connection
-  $conn = new mysqli($db_host, $db_user, $db_pass,"guvi_internship");
+$conn = new mysqli($db_host, $db_user, $db_pass, "guvi_internship");
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
 
 //Retrieve form data.
-  $email = $_POST['email'];
-  $passwrd = $_POST['passwrd'];
+$info = $_POST['info'];
+$creds = explode(":", base64_decode($info));
 
-  // $email = "test22@example.com";
-  // $passwrd = "Test12@";
+
+// $email = "test22@example.com";
+// $passwrd = "Test12@";
 
 // Hashing Password
-  $passwrd = sha1($passwrd);
-  
-  $sttmnt = $conn->prepare("SELECT id FROM users where email = ? AND passwrd = ? ");
-  $sttmnt->bind_param("ss",$email,$passwrd);
-  $sttmnt->execute();
-  
-  $result = $sttmnt->get_result();
-  
-  $row = $result->fetch_assoc();
+$email = $creds[0];
+$passwrd = sha1((strrev($creds[1])));
 
-  $count = $row['id'];
+$sttmnt = $conn->prepare("SELECT id,email FROM users where email = ? AND passwrd = ? ");
+$sttmnt->bind_param("ss", $email, $passwrd);
+$sttmnt->execute();
 
-  // echo $count;
-  if($count)
-  {
-  echo "User Found";
+$result = $sttmnt->get_result();
+
+$row = $result->fetch_assoc();
+if ($row) {
+  try {
+    $result = json_encode($row);
+    echo $result;
+  } catch (Error $e) {
+    echo $e;
   }
-  else {
-  echo "Invalid Credentials";
-  }
-    
-
-
-
-
-
-?>
+} else {
+  echo "User not found";
+}

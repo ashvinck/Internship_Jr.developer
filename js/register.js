@@ -75,34 +75,34 @@ $(document).ready(function () {
 
 
 // For checking whether a user already exists with the given email
-$(document).ready(function () {
-    $("#email").on('input', function (e) {
-        e.preventDefault();
+// $(document).ready(function () {
+//     $("#email").on('input', function (e) {
+//         e.preventDefault();
 
-        var email = $("#email").val();
-        dataObj = "email=" + email;
+//         var email = $("#email").val();
+//         dataObj = "email=" + email;
 
-        $.ajax({
+//         $.ajax({
 
-            type: "POST",
-            url: "php/email_dup_check.php",
-            data: dataObj,
-            cache: false,
-            success: function (result) {
-                result = Number(result);
+//             type: "POST",
+//             url: "php/email_dup_check.php",
+//             data: dataObj,
+//             cache: false,
+//             success: function (result) {
+//                 result = Number(result);
 
-                if (result) {
-                    $("#error-feedback").html("Username already exists");
-                    $("#registerbtn").prop('disabled', true);
-                }
-                else if (!result) {
-                    $("#error-feedback").html("");
-                    $("#subReg").prop('disabled', false);
-                }
-            }
-        });
-    });
-});
+//                 if (result) {
+//                     $("#error-feedback").html("Username already exists");
+//                     $("#registerbtn").prop('disabled', true);
+//                 }
+//                 else if (!result) {
+//                     $("#error-feedback").html("");
+//                     $("#subReg").prop('disabled', false);
+//                 }
+//             }
+//         });
+//     });
+// });
 
 
 //When Register buttton is clicked
@@ -128,7 +128,7 @@ $(document).ready(function () {
             //disabled all the text fields
             $('.text').attr('disabled', 'true');
 
-            console.log(registerInfo);
+            // console.log(registerInfo);
 
             // start the ajax
             $.ajax({
@@ -146,10 +146,13 @@ $(document).ready(function () {
 
                 //success
                 success: function (response) {
-                    console.log("Respond was: ", response);
-                    if (!(response.includes("Error"))) {
+                    if (response === "User Data inserted successfully") {
                         alert("User Registration Successfull. Please Login")
                         location.href = "../guvi/login.html"
+                    }
+                    else {
+                        console.log("Error: ", response);
+                        alert("Error");
                     }
                 },
 
@@ -161,7 +164,6 @@ $(document).ready(function () {
         }
     });
 });
-
 
 
 

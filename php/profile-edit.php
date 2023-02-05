@@ -1,6 +1,9 @@
 
 <?php
+
+session_start();  // Redis Session
 require '../vendor/autoload.php'; // include Composer's autoloader
+
 
 // Declaring Mongo url
 $db_url = "mongodb://localhost:27017";
@@ -27,7 +30,6 @@ if (!$collection) {
 
 // Updating Data from form
 $fullname = $_POST['fullname'];
-$dob = $_POST['dob'];
 $age = $_POST['age'];
 $phone = $_POST['phone'];
 $address = $_POST['address'];
@@ -36,7 +38,6 @@ $work = $_POST['work'];
 $userupdate = array(
     '$set' => array(
         "name" => $fullname,
-        "dob" => $dob,
         "age" => $age,
         "phone" => $phone,
         "address" => $address,
@@ -44,7 +45,9 @@ $userupdate = array(
     )
 );
 
-$condition = array("name" => "Bagid");
+$email = $_POST['email'];
+
+$condition = array("email" => $email);
 
 if ($collection->updateOne($condition, $userupdate)) {
     echo "Record Updated Successfully";

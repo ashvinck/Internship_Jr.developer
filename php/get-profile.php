@@ -1,5 +1,8 @@
 
 <?php
+
+session_start();  //Redis Session 
+
 require '../vendor/autoload.php'; // include Composer's autoloader
 
 // Declaring Mongo url
@@ -27,10 +30,15 @@ if (!$collection) {
     echo "Error in creating collection userData";
 }
 
-$document = $collection->findOne(['name' => 'Sunny']);
+// $email = "thisisashvinck123@gmail.com";
+$email = $_POST['email'];
 
-$result = json_encode($document->getArrayCopy());
 
-echo $result;
+$document = $collection->findOne(['email' => $email]);
+
+if ($document) {
+    $result = json_encode($document->getArrayCopy());
+    echo $result;
+}
 
 ?>

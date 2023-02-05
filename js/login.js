@@ -49,15 +49,18 @@ $(document).ready(function () {
     $("#loginbuttn").click(function (e) {
 
         e.preventDefault();
-        var email, passwrd;
+        var email, passwrd, info;
         email = $("#email").val();
-        passwrd = $("#passwrd").val();
+        passwrd = $("#passwrd").val().split("").reverse().join("");
+
+        info = btoa(email + ":" + passwrd);
+
 
         //organize the data properly
         var loginInfo =
-            "email=" + email +
-            "&passwrd=" + passwrd;
+            "&info=" + info;
 
+        // console.log(loginInfo);
         // start the ajax
         $.ajax({
 
@@ -76,10 +79,20 @@ $(document).ready(function () {
 
             //success
             success: function (response) {
-                console.log("Respone was: ", response);
-                if (response.includes("User Found")) {
-                    localStorage.setItem("userdata", response)
-                    console.log(response);
+                if (response === "User not found") {
+                    alert("User not found!");
+                }
+                else {
+                    try {
+                        console.log(JSON.parse(response));
+                        localStorage.setItem("userData", response);
+                        localStorage.setItem("token", loginInfo);
+                        location.href = "../guvi/profile.html"
+                    }
+                    catch (err) {
+                        console.log('error occured');
+                        alert('Unable to connect to server');
+                    }
                 }
             },
 
