@@ -74,37 +74,6 @@ $(document).ready(function () {
 });
 
 
-// For checking whether a user already exists with the given email
-// $(document).ready(function () {
-//     $("#email").on('input', function (e) {
-//         e.preventDefault();
-
-//         var email = $("#email").val();
-//         dataObj = "email=" + email;
-
-//         $.ajax({
-
-//             type: "POST",
-//             url: "php/email_dup_check.php",
-//             data: dataObj,
-//             cache: false,
-//             success: function (result) {
-//                 result = Number(result);
-
-//                 if (result) {
-//                     $("#error-feedback").html("Username already exists");
-//                     $("#registerbtn").prop('disabled', true);
-//                 }
-//                 else if (!result) {
-//                     $("#error-feedback").html("");
-//                     $("#subReg").prop('disabled', false);
-//                 }
-//             }
-//         });
-//     });
-// });
-
-
 //When Register buttton is clicked
 $(document).ready(function () {
     $("#registerbtn").click(function (e) {
