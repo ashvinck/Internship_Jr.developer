@@ -31,5 +31,4 @@ This is a simple user authentication microservice application where in the flow 
 - For configuring [Redis_Session_Handler](https://github.com/phpredis/phpredis#php-session-handler).
 
 - Open XAMPP Control Panel and start Apache server and MySQL server and open the Apache admin interface and type the path to the project directory.
-  eg : `localhost/Internship_Jr.developer
-` and the app gets started.
+  eg : `localhost/UserAuthApp` and the app gets started.
