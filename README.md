@@ -23,7 +23,7 @@ This is a simple user authentication microservice application where in the flow 
 - Download this repository.
 - Install [XAMPP](https://www.apachefriends.org/) for PHP Development environment.
 - Move the downloaded repository to the path: :\xampp\htdocs\.
-- Download the [MongoDB_Compass](https://www.mongodb.com/products/compass) and [Redis](https://redis.io/download/).
+- Download the [MongoDB_Compass](https://www.mongodb.com/products/compass) and [Redis](https://github.com/microsoftarchive/redis/releases).
 - Download the [MONGODB](https://pecl.php.net/package/mongodb) and [REDIS](https://pecl.php.net/package/redis) .dll files compatible with your PHP version.
 - Please Refer [MONGO](https://www.geeksforgeeks.org/how-to-install-mongodb-driver-in-php/) and [Redis](https://github.com/phpredis/phpredis/blob/develop/INSTALL.md) for installing extensions for XAMPP.
 - Download [Composer](https://getcomposer.org/download/).
