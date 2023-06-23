@@ -1,8 +1,8 @@
-# User Authentication App
+# A demo of a simple microservice application
 
 ### Description
 
-This is a simple user authentication microservice application where in the flow is as below:<br/>
+This is a simple demo of a microservice architecture where in the flow is as below:<br/>
 
 - Registering a user -> using email and password.<br/>
 - Login-> using registered credentials.<br/>
